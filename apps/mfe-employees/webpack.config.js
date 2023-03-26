@@ -10,7 +10,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "mfeEmployees",
+    uniqueName: "MfeEmployees",
     publicPath: "auto",
     scriptType: 'text/javascript'
   },
@@ -20,7 +20,7 @@ module.exports = {
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
-    }
+    } 
   },
   experiments: {
     outputModule: true
@@ -33,7 +33,10 @@ module.exports = {
         name: "mfe-employees",
         filename: "remoteEntry.js",
         exposes: {
-            './MoviesComponent': './apps/mfe-employees/src/app/movies/movies.component.ts',
+            // './RemoteModule': './apps/mfe-employees/src/app/counter/counter.routing.module.ts',
+            './RemoteModule': './apps/mfe-employees/src/app/counter/counter.routing.module.ts',
+            // C:\Prema\ngrx-mfe\apps\mfe-employees\src\app\counter\counter.routing.module.ts
+            // apps\mfe-employees\src\app\counter\counter.routing.module.ts
             // './Module': './apps/mfe-employees/src/app/app.module.ts'
         },        
         

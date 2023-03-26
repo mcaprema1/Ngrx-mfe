@@ -2,6 +2,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 const share = mf.share;
+// import('mfeEmployees/MoviesModule')
 
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
@@ -37,10 +38,10 @@ module.exports = {
         // },        
         
         // For hosts (please adjust)
-        // remotes: {
-        //     "mfeEmployee": "http://localhost:8000/remoteEntry.js",
-
-        // },
+        remotes: {
+            "mfe-employees": 'http://localhost:8000/remoteEntry.js',
+                  // mfe1: 'mfe1@http://localhost:3000/remoteEntry.js',
+        },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 

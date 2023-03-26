@@ -8,10 +8,21 @@ import { StoreModule } from '@ngrx/store';
 import { categoryReducer, moviesReducer } from '@ngrx-mfe/data-store';
 import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { RouterModule } from '@angular/router';
+// import { AppRoutingModule } from './app.routing.module';
+import { RemoteCounterComponent } from './counter/counter.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent, MoviesComponent],
+  declarations: [AppComponent, NxWelcomeComponent],
   imports: [BrowserModule,
+    // RouterModule.forRoot([{
+      // path: '', 
+      // component: MoviesComponent
+    // }])  ,
+    // AppRoutingModule,
+    RouterModule.forRoot([{ path: '', component: RemoteCounterComponent }], {
+      useHash: true,
+    }),
     StoreModule.forRoot(
       { movies: moviesReducer, categories: categoryReducer },
       {}
@@ -21,7 +32,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       logOnly: environment.production,
      } ) : [],],
   providers: [],
-  // exports :[MoviesComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
